@@ -23,6 +23,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle pLink;
   final TextStyle pLinkHover;
   final TextStyle pBlockQuote;
+  final TextStyle appbarTitle;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -70,6 +71,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
         ),
         pBlockQuote = TextStyle(
             color: dimFontColor, fontSize: 14, height: 1.5, letterSpacing: 0),
+        appbarTitle = const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 29,
+            letterSpacing: 0),
         h100 = TextStyle(
             color: dimFontColor,
             fontWeight: FontWeight.w700,
@@ -144,6 +150,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.pLink,
     required this.pLinkHover,
     required this.pBlockQuote,
+    required this.appbarTitle,
   });
 
   @override
@@ -168,6 +175,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? pLink,
     TextStyle? pLinkHover,
     TextStyle? pBlockQuote,
+    TextStyle? appbarTitle,
   }) {
     return AppTypographyExtension(
       ui: ui ?? this.ui,
@@ -190,6 +198,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       pLink: pLink ?? this.pLink,
       pLinkHover: pLinkHover ?? this.pLinkHover,
       pBlockQuote: pBlockQuote ?? this.pBlockQuote,
+      appbarTitle: appbarTitle ?? this.appbarTitle,
     );
   }
 
@@ -220,6 +229,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       pLink: TextStyle.lerp(pLink, other.pLink, t)!,
       pLinkHover: TextStyle.lerp(pLinkHover, other.pLinkHover, t)!,
       pBlockQuote: TextStyle.lerp(pBlockQuote, other.pBlockQuote, t)!,
+      appbarTitle: TextStyle.lerp(appbarTitle, other.appbarTitle, t)!,
     );
   }
 }
