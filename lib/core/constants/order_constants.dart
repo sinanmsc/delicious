@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'order_constants.g.dart';
 
 class OrderConstants{
-  final appbarName = 'Orders';
+  final txtappbarTitle = 'Orders';
 }
 
 @riverpod

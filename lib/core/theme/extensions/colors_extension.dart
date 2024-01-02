@@ -9,13 +9,14 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
   final Color txtSubtle;
   final Color backgroundLight;
 
-  AppColors(
-      {required this.primary,
-      required this.btnPrimary,
-      required this.txtInverse,
-      required this.imgBack,
-      required this.txtSubtle,
-      required this.backgroundLight});
+  AppColors({
+    required this.primary,
+    required this.btnPrimary,
+    required this.txtInverse,
+    required this.imgBack,
+    required this.txtSubtle,
+    required this.backgroundLight,
+  });
 
   @override
   ThemeExtension<AppColors> copyWith({
@@ -44,13 +45,13 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
     }
 
     return AppColors(
-        primary: Color.lerp(primary, other.primary, t)!,
-        btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
-        txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
-        imgBack: Color.lerp(imgBack, other.imgBack, t)!,
-        txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
-        backgroundLight:
-            Color.lerp(backgroundLight, other.backgroundLight, t)!);
+      primary: Color.lerp(primary, other.primary, t)!,
+      btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
+      txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
+      imgBack: Color.lerp(imgBack, other.imgBack, t)!,
+      txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
+      backgroundLight: Color.lerp(backgroundLight, other.backgroundLight, t)!,
+    );
   }
 
   @override
