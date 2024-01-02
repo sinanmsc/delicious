@@ -20,7 +20,7 @@ class OrderPage extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: colors.btnPrimary,
         title: Text(
-          ref.watch(orderConstantsProvider).txtappbarTitle,
+          ref.watch(orderConstantsProvider).txtAppbarTitle,
           style: typography.appbarTitle,
         ),
       ),
