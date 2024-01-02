@@ -7,29 +7,32 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
   final Color txtInverse;
   final Color imgBack;
   final Color txtSubtle;
+  final Color backgroundLight;
 
-  AppColors({
-    required this.primary,
-    required this.btnPrimary,
-    required this.txtInverse,
-    required this.imgBack,
-    required this.txtSubtle,
-  });
+  AppColors(
+      {required this.primary,
+      required this.btnPrimary,
+      required this.txtInverse,
+      required this.imgBack,
+      required this.txtSubtle,
+      required this.backgroundLight});
 
   @override
   ThemeExtension<AppColors> copyWith({
     Color? primary,
     Color? btnPrimary,
     Color? txtInverse,
-    Color? progressFill,
+    Color? imgBack,
     Color? txtSubtle,
+    Color? backgroundLight,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
       btnPrimary: btnPrimary ?? this.btnPrimary,
       txtInverse: txtInverse ?? this.txtInverse,
-      imgBack: progressFill ?? this.imgBack,
+      imgBack: imgBack ?? this.imgBack,
       txtSubtle: txtSubtle ?? this.txtSubtle,
+      backgroundLight: backgroundLight ?? this.backgroundLight,
     );
   }
 
@@ -41,12 +44,13 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
     }
 
     return AppColors(
-      primary: Color.lerp(primary, other.primary, t)!,
-      btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
-      txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
-      imgBack: Color.lerp(imgBack, other.imgBack, t)!,
-      txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
-    );
+        primary: Color.lerp(primary, other.primary, t)!,
+        btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
+        txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
+        imgBack: Color.lerp(imgBack, other.imgBack, t)!,
+        txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
+        backgroundLight:
+            Color.lerp(backgroundLight, other.backgroundLight, t)!);
   }
 
   @override
@@ -56,5 +60,6 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
         imgBack,
         txtInverse,
         txtSubtle,
+        backgroundLight,
       ];
 }

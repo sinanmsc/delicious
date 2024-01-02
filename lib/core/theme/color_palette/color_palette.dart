@@ -6,4 +6,5 @@ class AppColorPalette {
   static const red = Color(0xFFC63D2F);
   static const redLight = Color(0xFFE25E3E);
   static const black_240 = Color(0xFF2C2A22);
+  static const backgroundLight = Color.fromARGB(255, 252, 239, 236);
 }
