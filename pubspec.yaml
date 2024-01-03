@@ -42,6 +42,7 @@ dependencies:
   json_annotation: ^4.8.1
   equatable: ^2.0.5
   go_router: ^13.0.0
+  simple_speed_dial: ^0.1.7
 
 dev_dependencies:
   flutter_test:
