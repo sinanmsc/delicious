@@ -14,6 +14,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle h300;
   final TextStyle h400;
   final TextStyle h500;
+  final TextStyle h500Normal;
   final TextStyle h600;
   final TextStyle h700;
   final TextStyle h800;
@@ -24,6 +25,8 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle pLinkHover;
   final TextStyle pBlockQuote;
   final TextStyle appbarTitle;
+  final TextStyle orderCustomerhead;
+  final TextStyle orderCustomervalue;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -47,6 +50,12 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           letterSpacing: 0,
           fontWeight: FontWeight.w600,
         ),
+        orderCustomerhead = TextStyle(
+          fontSize: 14,
+          color: dimFontColor,
+        ),
+        orderCustomervalue = TextStyle(
+            fontWeight: FontWeight.w600, fontSize: 16, color: defaultFontColor),
         code = TextStyle(
             color: defaultFontColor,
             fontFamily: 'DMMono',
@@ -102,6 +111,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
             fontWeight: FontWeight.w600,
             fontSize: 16,
             letterSpacing: 0),
+        h500Normal = TextStyle(
+          color: defaultFontColor,
+          fontSize: 16,
+          letterSpacing: 0,
+        ),
         h600 = TextStyle(
             color: defaultFontColor,
             fontWeight: FontWeight.w600,
@@ -151,6 +165,9 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.pLinkHover,
     required this.pBlockQuote,
     required this.appbarTitle,
+    required this.orderCustomerhead,
+    required this.orderCustomervalue,
+    required this.h500Normal,
   });
 
   @override
@@ -176,6 +193,9 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? pLinkHover,
     TextStyle? pBlockQuote,
     TextStyle? appbarTitle,
+    TextStyle? orderCustomerhead,
+    TextStyle? orderCustomervalue,
+    TextStyle? h500Normal,
   }) {
     return AppTypographyExtension(
       ui: ui ?? this.ui,
@@ -199,6 +219,9 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       pLinkHover: pLinkHover ?? this.pLinkHover,
       pBlockQuote: pBlockQuote ?? this.pBlockQuote,
       appbarTitle: appbarTitle ?? this.appbarTitle,
+      orderCustomerhead: orderCustomerhead ?? this.orderCustomerhead,
+      orderCustomervalue: orderCustomervalue ?? this.orderCustomervalue,
+      h500Normal: h500Normal ?? this.h500Normal,
     );
   }
 
@@ -230,6 +253,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       pLinkHover: TextStyle.lerp(pLinkHover, other.pLinkHover, t)!,
       pBlockQuote: TextStyle.lerp(pBlockQuote, other.pBlockQuote, t)!,
       appbarTitle: TextStyle.lerp(appbarTitle, other.appbarTitle, t)!,
+      orderCustomerhead:
+          TextStyle.lerp(orderCustomerhead, other.orderCustomerhead, t)!,
+      orderCustomervalue:
+          TextStyle.lerp(orderCustomervalue, other.orderCustomervalue, t)!,
+      h500Normal: TextStyle.lerp(h500Normal, other.h500Normal, t)!,
     );
   }
 }

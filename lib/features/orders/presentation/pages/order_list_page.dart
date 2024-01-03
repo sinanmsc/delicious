@@ -1,6 +1,7 @@
-import 'package:delicious/core/constants/order_constants.dart';
+import 'package:delicious/core/constants/order/order_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:delicious/features/orders/presentation/widgets/order_listtile_widget.dart';
+import 'package:delicious/features/orders/presentation/widgets/order_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -24,16 +25,27 @@ class OrderPage extends ConsumerWidget {
           style: typography.appbarTitle,
         ),
       ),
-      body: Center(
-        child: ListView.separated(
-          separatorBuilder: (context, index) => SizedBox(
-            height: spaces.space_100,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: spaces.space_200, vertical: spaces.space_200),
+        child: Center(
+          child: Column(
+            children: [
+              const OrderTextField(),
+              Expanded(
+                child: ListView.separated(
+                  padding: EdgeInsets.only(top: spaces.space_200),
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: spaces.space_250,
+                  ),
+                  itemCount: 7,
+                  itemBuilder: (context, index) {
+                    return const OrderListTile();
+                  },
+                ),
+              ),
+            ],
           ),
-          padding: EdgeInsets.all(spaces.space_100),
-          itemCount: 12,
-          itemBuilder: (context, index) {
-            return const OrderListTile();
-          },
         ),
       ),
     );
