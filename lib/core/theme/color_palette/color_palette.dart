@@ -7,4 +7,5 @@ class AppColorPalette {
   static const redLight = Color(0xFFE25E3E);
   static const black_240 = Color(0xFF2C2A22);
   static const backgroundLight = Color(0xFFFCEFEC);
+  static const grey = Colors.grey;
 }

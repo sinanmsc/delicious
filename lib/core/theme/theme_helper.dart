@@ -1,4 +1,5 @@
 import 'package:delicious/core/theme/extensions/colors_extension.dart';
+import 'package:delicious/core/theme/extensions/shadow_extension.dart';
 import 'package:delicious/core/theme/extensions/space_extension.dart';
 import 'package:delicious/core/theme/extensions/typography_extension.dart';
 import 'package:flutter/material.dart';
@@ -18,5 +19,9 @@ class AppTheme {
 
   AppTypographyExtension get typography {
     return Theme.of(context).extension<AppTypographyExtension>()!;
+  }
+
+  AppBoxShadow get boxShadow {
+    return Theme.of(context).extension<AppBoxShadow>()!;
   }
 }

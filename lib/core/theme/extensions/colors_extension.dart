@@ -1,13 +1,13 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
+class AppColors extends ThemeExtension<AppColors> {
   final Color primary;
   final Color btnPrimary;
   final Color txtInverse;
   final Color imgBack;
   final Color txtSubtle;
   final Color backgroundLight;
+  final Color behindImage;
 
   AppColors({
     required this.primary,
@@ -16,6 +16,7 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
     required this.imgBack,
     required this.txtSubtle,
     required this.backgroundLight,
+    required this.behindImage,
   });
 
   @override
@@ -26,6 +27,7 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
     Color? imgBack,
     Color? txtSubtle,
     Color? backgroundLight,
+    Color? behindImage,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
@@ -34,6 +36,7 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
       imgBack: imgBack ?? this.imgBack,
       txtSubtle: txtSubtle ?? this.txtSubtle,
       backgroundLight: backgroundLight ?? this.backgroundLight,
+      behindImage: behindImage ?? this.behindImage,
     );
   }
 
@@ -51,16 +54,7 @@ class AppColors extends ThemeExtension<AppColors> with EquatableMixin {
       imgBack: Color.lerp(imgBack, other.imgBack, t)!,
       txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
       backgroundLight: Color.lerp(backgroundLight, other.backgroundLight, t)!,
+      behindImage: Color.lerp(behindImage, other.behindImage, t)!,
     );
   }
-
-  @override
-  List<Object?> get props => [
-        primary,
-        btnPrimary,
-        imgBack,
-        txtInverse,
-        txtSubtle,
-        backgroundLight,
-      ];
 }
