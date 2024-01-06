@@ -31,7 +31,7 @@ class OrderPage extends ConsumerWidget {
         child: Center(
           child: Column(
             children: [
-              const OrderTextField(),
+              const OrderTextField(hintText: 'Search'),
               Expanded(
                 child: ListView.separated(
                   padding: EdgeInsets.only(top: spaces.space_200),

@@ -2,10 +2,10 @@ import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:flutter/material.dart';
 
 class OrderTextField extends StatelessWidget {
+  final String hintText;
   const OrderTextField({
-    super.key,
+    super.key,required this.hintText,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class OrderTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.search),
-        label: const Text('Search'),
+        hintText: hintText,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(spaces.space_125),
           borderSide: const BorderSide(width: 0.5),
