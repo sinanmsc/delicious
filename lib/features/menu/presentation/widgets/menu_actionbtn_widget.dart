@@ -1,4 +1,6 @@
+import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 
 import '../../../../core/theme/theme_helper.dart';
@@ -6,19 +8,18 @@ import '../../../../core/theme/theme_helper.dart';
 class MenupageActionBtn extends StatelessWidget {
   const MenupageActionBtn({
     super.key,
-    required this.theme,
   });
-
-  final AppTheme theme;
 
   @override
   Widget build(BuildContext context) {
+    final colors = AppTheme.of(context).colors;
+    final typography = AppTheme.of(context).typography;
     return SpeedDial(
       closedForegroundColor: Colors.black,
       openForegroundColor: Colors.white,
-      closedBackgroundColor: theme.colors.primary,
-      openBackgroundColor: theme.colors.imgBack,
-      labelsStyle: theme.typography.h400,
+      closedBackgroundColor: colors.primary,
+      openBackgroundColor: colors.imgBack,
+      labelsStyle: typography.h400,
       labelsBackgroundColor: Colors.white,
       // controller: actionBtnController,
       speedDialChildren: <SpeedDialChild>[
@@ -27,7 +28,7 @@ class MenupageActionBtn extends StatelessWidget {
           foregroundColor: Colors.white,
           backgroundColor: Colors.red,
           label: 'Add category!',
-          onPressed: () {},
+          onPressed: () => context.push(AddCategory.routPath),
           // closeSpeedDialOnPressed: false,
         ),
         SpeedDialChild(

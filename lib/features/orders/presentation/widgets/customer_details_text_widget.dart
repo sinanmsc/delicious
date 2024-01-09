@@ -16,7 +16,7 @@ class CustomerDetailText extends StatelessWidget {
       children: [
         Text(
           head,
-          style: typography.orderCustomerhead,
+          style: typography.smallHead,
         ),
         SizedBox(height: spaces.space_50),
         Text(

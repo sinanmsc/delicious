@@ -1,6 +1,6 @@
 import 'package:delicious/core/constants/order/order_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
-import 'package:delicious/features/orders/presentation/widgets/item_option_widget.dart';
+import 'package:delicious/features/menu/presentation/widgets/chiplist_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,10 +9,8 @@ class ItemContainer extends ConsumerWidget {
     super.key,
   });
 
-
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
-
+  Widget build(BuildContext context, WidgetRef ref) {
     final typography = AppTheme.of(context).typography;
     final spaces = AppTheme.of(context).spaces;
     final boxShadow = AppTheme.of(context).boxShadow;
@@ -27,8 +25,7 @@ class ItemContainer extends ConsumerWidget {
         children: [
           const CircleAvatar(
             radius: 30,
-            backgroundImage:
-                AssetImage('asset/order_images/order1.png'),
+            backgroundImage: AssetImage('asset/order_images/order1.png'),
           ),
           SizedBox(width: spaces.space_250),
           Column(
@@ -49,7 +46,7 @@ class ItemContainer extends ConsumerWidget {
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) =>
-                        const ItemOptionWidget(),
+                        const ChipList(labelText: 'Half'),
                     separatorBuilder: (context, index) =>
                         const SizedBox(width: 10),
                     itemCount: 2),

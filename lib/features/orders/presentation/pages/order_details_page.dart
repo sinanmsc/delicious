@@ -22,13 +22,14 @@ class OrderDetails extends ConsumerWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: colors.btnPrimary,
+        surfaceTintColor: Colors.transparent,
         title: Text(
           id,
           style: typography.appbarTitle,
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             backgroundColor: colors.btnPrimary,
             iconTheme: const IconThemeData(color: Colors.white),
@@ -61,26 +62,30 @@ class OrderDetails extends ConsumerWidget {
               ),
             ),
           ),
-          SliverFillRemaining(
-            child: ListView(
-              padding: EdgeInsets.all(spaces.space_150),
-              physics: const NeverScrollableScrollPhysics(),
+        ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   ref.watch(orderConstantsProvider).txtOrderedItemHead,
                   style: typography.h500Normal,
                 ),
-                ListView.builder(
+                ListView.separated(
                   padding: EdgeInsets.only(top: spaces.space_150),
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   itemBuilder: (context, index) => const ItemContainer(),
-                  itemCount: 4,
+                  itemCount: 2,
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const SizedBox(height: 16),
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
