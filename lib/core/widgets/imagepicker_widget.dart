@@ -1,13 +1,19 @@
+import 'dart:io';
+
 import 'package:delicious/core/constants/menu/menu_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
-import 'package:delicious/features/menu/presentation/providers/menu_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
 
-class CategoryImagePickerWidget extends ConsumerWidget {
-  const CategoryImagePickerWidget({
+class ImagePickerWidget extends ConsumerWidget {
+  final String headText;
+  final void Function() onTap;
+  final String imagePath;
+  const ImagePickerWidget({
     super.key,
+    required this.headText,
+    required this.onTap,
+    required this.imagePath,
   });
 
   @override
@@ -19,36 +25,30 @@ class CategoryImagePickerWidget extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          ref.watch(menuConstantsProvider).txtCategoryImage,
+          headText,
           style: typography.smallHead,
         ),
-        SizedBox(height: spaces.space_300),
+        SizedBox(height: spaces.space_400),
         Center(
           child: InkWell(
-            onTap: () async {
-              XFile? pickedImage = await ref
-                  .read(menuProvider.notifier)
-                  .imagePicker
-                  .pickImage(source: ImageSource.camera);
-
-              if (pickedImage != null) {
-                ref.read(menuProvider.notifier).getImage(pickedImage.path);
-              }
-            },
+            onTap: () => onTap(),
             child: CircleAvatar(
               radius: spaces.space_900 * 2,
               backgroundColor: colors.backgroundLight,
-              backgroundImage: ref.watch(menuProvider) != null
-                  ? AssetImage(ref.watch(menuProvider)!)
-                  : null,
-              child: ref.watch(menuProvider) != null
+              backgroundImage: imagePath.isEmpty
                   ? null
-                  : Column(
+                  : FileImage(
+                      File(
+                        imagePath,
+                      ),
+                    ),
+              child: imagePath.isEmpty
+                  ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.add,
-                          color: Colors.black,
+                          color: Colors.grey[700],
                           size: spaces.space_500,
                         ),
                         SizedBox(height: spaces.space_100),
@@ -57,7 +57,8 @@ class CategoryImagePickerWidget extends ConsumerWidget {
                           style: typography.h500,
                         )
                       ],
-                    ),
+                    )
+                  : null,
             ),
           ),
         ),

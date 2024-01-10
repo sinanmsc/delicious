@@ -1,7 +1,7 @@
 import 'package:delicious/core/constants/order/order_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:delicious/features/orders/presentation/widgets/order_listtile_widget.dart';
-import 'package:delicious/features/orders/presentation/widgets/order_textfield_widget.dart';
+import 'package:delicious/core/widgets/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -31,7 +31,8 @@ class OrderPage extends ConsumerWidget {
         child: Center(
           child: Column(
             children: [
-              const OrderTextField(hintText: 'Search'),
+              const CustomTextField(
+                  hintText: 'Search', prifixIcon: Icon(Icons.search)),
               Expanded(
                 child: ListView.separated(
                   padding: EdgeInsets.only(top: spaces.space_200),

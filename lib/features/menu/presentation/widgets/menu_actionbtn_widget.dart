@@ -1,4 +1,5 @@
 import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
+import 'package:delicious/features/menu/presentation/pages/add_dishes_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
@@ -36,7 +37,7 @@ class MenupageActionBtn extends StatelessWidget {
           foregroundColor: Colors.black,
           backgroundColor: Colors.yellow,
           label: 'Add dish !',
-          onPressed: () {},
+          onPressed: () => context.push(AddDishes.routerPath),
         ),
         //  Your other SpeedDialChildren go here.
       ],

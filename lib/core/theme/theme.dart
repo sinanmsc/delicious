@@ -12,6 +12,8 @@ ThemeData _lightTheme = ThemeData(
   useMaterial3: true,
   primaryColor: AppColorPalette.redLight,
   colorScheme: const ColorScheme.light(),
+  dialogTheme: const DialogTheme(
+      backgroundColor: Colors.white, surfaceTintColor: Colors.white),
   extensions: <ThemeExtension<dynamic>>[
     AppColors(
       primary: AppColorPalette.redLight,
@@ -24,7 +26,7 @@ ThemeData _lightTheme = ThemeData(
     ),
     AppSpaceExtension.fromBaseSpace(8),
     AppTypographyExtension.fromColors(
-      defaultFontColor: Colors.black,
+      defaultFontColor: Colors.grey[800]!,
       linkColor: Colors.blue,
       dimFontColor: AppColorPalette.black_240,
     ),

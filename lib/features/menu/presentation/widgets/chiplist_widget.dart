@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class ChipList extends StatelessWidget {
   final String labelText;
   const ChipList({
-    super.key,required this.labelText,
+    super.key,
+    required this.labelText,
   });
 
   @override
@@ -16,7 +17,7 @@ class ChipList extends StatelessWidget {
       children: [
         for (int i = 0; i < 3; i++)
           Chip(
-            label:  Text(labelText),
+            label: Text(labelText),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(spaces.space_100),
               side: BorderSide(width: spaces.space_25 * 0.25),
