@@ -115,7 +115,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
             fontSize: 16,
             letterSpacing: 0),
         h500Normal = TextStyle(
-          color: defaultFontColor,
+          color: dimFontColor,
           fontSize: 16,
           letterSpacing: 0,
         ),
@@ -201,6 +201,8 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? appbarTitle,
     TextStyle? orderCustomerhead,
     TextStyle? orderCustomervalue,
+    TextStyle? smallHead,
+
   }) {
     return AppTypographyExtension(
       ui: ui ?? this.ui,
@@ -226,7 +228,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       pLinkHover: pLinkHover ?? this.pLinkHover,
       pBlockQuote: pBlockQuote ?? this.pBlockQuote,
       appbarTitle: appbarTitle ?? this.appbarTitle,
-      smallHead: orderCustomerhead ?? this.smallHead,
+      smallHead: smallHead ?? this.smallHead,
       orderCustomervalue: orderCustomervalue ?? this.orderCustomervalue,
     );
   }

@@ -1,12 +1,8 @@
-import 'package:delicious/core/theme/extensions/shadow_extension.dart';
-import 'package:delicious/core/theme/extensions/space_extension.dart';
-import 'package:delicious/core/theme/extensions/typography_extension.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
-import 'package:delicious/features/menu/presentation/widgets/chiplist_widget.dart';
 import 'package:delicious/features/menu/presentation/widgets/menu_appbar_widget.dart';
 import 'package:delicious/features/menu/presentation/widgets/menu_actionbtn_widget.dart';
 import 'package:delicious/features/menu/presentation/widgets/menu_item_container_widget.dart';
-import 'package:delicious/features/orders/presentation/widgets/order_textfield_widget.dart';
+import 'package:delicious/core/widgets/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,7 +13,7 @@ class MenuPage extends ConsumerWidget {
     final spaces = AppTheme.of(context).spaces;
     return DefaultTabController(
       initialIndex: 0,
-      length: 6,
+      length: 2,
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 90),
@@ -31,7 +27,10 @@ class MenuPage extends ConsumerWidget {
                   padding: EdgeInsets.all(spaces.space_200),
                   child: Column(
                     children: [
-                      const OrderTextField(hintText: 'Search Items'),
+                      const CustomTextField(
+                        hintText: 'Search Items',
+                        prifixIcon: Icon(Icons.search),
+                      ),
                       SizedBox(height: spaces.space_300),
                     ],
                   ),

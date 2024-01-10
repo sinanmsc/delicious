@@ -1,5 +1,6 @@
 import 'package:delicious/features/Admin_Page/prasentation/pages/admin_main_page.dart';
 import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
+import 'package:delicious/features/menu/presentation/pages/add_dishes_page.dart';
 import 'package:delicious/features/orders/presentation/pages/order_details_page.dart';
 import 'package:delicious/features/orders/presentation/pages/order_list_page.dart';
 import 'package:go_router/go_router.dart';
@@ -27,6 +28,11 @@ class RouterGo {
         path: OrderDetails.path,
         name: OrderDetails.name,
         builder: (context, state) => OrderDetails(id: state.extra.toString()),
+      ),
+      GoRoute(
+        path: AddDishes.routerPath,
+        name: AddDishes.routerNAme,
+        builder: (context, state) => const AddDishes(),
       ),
     ],
   );

@@ -12,7 +12,7 @@ class MenuPageBar extends StatelessWidget {
     var typography = AppTheme.of(context).typography;
 
     return TabBar(
-        isScrollable: true,
+        // isScrollable: true,
         onTap: (value) {},
         padding: EdgeInsets.zero,
         labelColor: Colors.white,
@@ -21,18 +21,6 @@ class MenuPageBar extends StatelessWidget {
         labelStyle: typography.h400Invers,
         indicatorSize: TabBarIndicatorSize.label,
         tabs: const [
-          Tab(
-            text: 'Biriyani',
-          ),
-          Tab(
-            text: 'Mandhi',
-          ),
-          Tab(
-            text: 'Biriyani',
-          ),
-          Tab(
-            text: 'Mandhi',
-          ),
           Tab(
             text: 'Biriyani',
           ),
