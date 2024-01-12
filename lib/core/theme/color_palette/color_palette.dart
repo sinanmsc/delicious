@@ -8,4 +8,5 @@ class AppColorPalette {
   static const black_240 = Color(0xFF2C2A22);
   static const backgroundLight = Color(0xFFFCEFEC);
   static const grey = Colors.grey;
+  static const container = Color.fromARGB(255, 255, 162, 0);
 }
