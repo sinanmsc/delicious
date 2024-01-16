@@ -23,6 +23,7 @@ ThemeData _lightTheme = ThemeData(
       txtSubtle: AppColorPalette.black_240,
       backgroundLight: AppColorPalette.backgroundLight,
       behindImage: AppColorPalette.grey,
+      container: AppColorPalette.container,
     ),
     AppSpaceExtension.fromBaseSpace(8),
     AppTypographyExtension.fromColors(
