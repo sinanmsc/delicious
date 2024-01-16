@@ -34,8 +34,8 @@ class OfferPage extends ConsumerWidget {
                     image: NetworkImage(
                         "https://bdtask.com/blog/uploads/restaurant-food-combo-offers.jpg"),
                     fit: BoxFit.cover)),
-            height: 200,
-            width: 200,
+            height: size.space_300 * 2,
+            width: size.space_100 * 3,
           );
         },
         itemCount: 8,
@@ -47,7 +47,7 @@ class OfferPage extends ConsumerWidget {
         backgroundColor: colors.btnPrimary,
         child: Icon(
           Icons.add,
-          size: 30,
+          size: size.space_100 * 2,
         ),
       ),
     );

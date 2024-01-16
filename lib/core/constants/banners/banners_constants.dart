@@ -6,6 +6,10 @@ final class Offer {
   final appbartitle = "offers";
   final txtdish = 'Dishes';
   final txtbanner = "Banner title";
+  final txtitem = "Item name";
+  final txtmayo = "Mayonise";
+  final txthalf = "Half";
+  final txt = "Text";
 }
 
 @riverpod

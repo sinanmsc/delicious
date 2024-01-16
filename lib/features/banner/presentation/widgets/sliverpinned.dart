@@ -15,16 +15,18 @@ class Pinnedsliver extends ConsumerWidget {
           pinned: true,
         ),
         SliverFixedExtentList(
-          delegate: SliverChildBuilderDelegate((context, index) => Container(
-                alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Text(ref.watch(offersConstantsProvider).txtdish),
-                    const Spacer(),
-                    const Icon(Icons.add),
-                  ],
-                ),
-              )),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => Container(
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  Text(ref.watch(offersConstantsProvider).txtdish),
+                  const Spacer(),
+                  const Icon(Icons.add),
+                ],
+              ),
+            ),
+          ),
           itemExtent: 50,
         )
       ],
