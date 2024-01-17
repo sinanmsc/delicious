@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class CustomTextField extends ConsumerWidget {
   final String hintText;
   final String? headText;
-  final Widget prifixIcon;
+  final Widget? prifixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -13,7 +13,7 @@ class CustomTextField extends ConsumerWidget {
     super.key,
     required this.hintText,
     this.headText,
-    required this.prifixIcon,
+    this.prifixIcon,
     this.controller,
     this.validator,
   });

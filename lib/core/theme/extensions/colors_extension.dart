@@ -9,6 +9,8 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color backgroundLight;
   final Color behindImage;
 
+  final Color container;
+
   AppColors({
     required this.primary,
     required this.btnPrimary,
@@ -17,6 +19,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.txtSubtle,
     required this.backgroundLight,
     required this.behindImage,
+    required this.container,
   });
 
   @override
@@ -28,6 +31,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? txtSubtle,
     Color? backgroundLight,
     Color? behindImage,
+    Color? container,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
@@ -37,6 +41,7 @@ class AppColors extends ThemeExtension<AppColors> {
       txtSubtle: txtSubtle ?? this.txtSubtle,
       backgroundLight: backgroundLight ?? this.backgroundLight,
       behindImage: behindImage ?? this.behindImage,
+      container: container ?? this.container,
     );
   }
 
@@ -48,6 +53,7 @@ class AppColors extends ThemeExtension<AppColors> {
     }
 
     return AppColors(
+      container: Color.lerp(container, other.container, t)!,
       primary: Color.lerp(primary, other.primary, t)!,
       btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
       txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
@@ -56,5 +62,13 @@ class AppColors extends ThemeExtension<AppColors> {
       backgroundLight: Color.lerp(backgroundLight, other.backgroundLight, t)!,
       behindImage: Color.lerp(behindImage, other.behindImage, t)!,
     );
+
+    // primary: Color.lerp(primary, other.primary, t)!,
+    // btnPrimary: Color.lerp(btnPrimary, other.btnPrimary, t)!,
+    // txtInverse: Color.lerp(txtInverse, other.txtInverse, t)!,
+    // imgBack: Color.lerp(imgBack, other.imgBack, t)!,
+    // txtSubtle: Color.lerp(txtSubtle, other.txtSubtle, t)!,
+    // backgroundLight: Color.lerp(backgroundLight, other.backgroundLight, t)!,
+    // container: Color.lerp(container, other.container, t)!);
   }
 }
