@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OrderDetails extends ConsumerWidget {
-  static const path = '/order_details';
-  static const name = 'order_details';
+  static const routerPath = '/order_details';
+  static const routerName = 'order_details';
   final String id;
   const OrderDetails({super.key, required this.id});
 

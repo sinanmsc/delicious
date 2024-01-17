@@ -14,9 +14,9 @@ class MenuConstants {
   final txtAddCategoryBtn = 'Add Category';
   final txtAddDishBtn = 'Add Dish';
   final txtAddDishAppbarTitle = 'New Dish';
-  final txtAddDishDiscription = 'Discription';
-  final txtAddDishIngredient = 'Ingredient';
-  final txtAddDishVariant = 'Variant';
+  final txtDishDiscriptionTitle = 'Discription';
+  final txtDishIngredientTitle = 'Ingredients';
+  final txtAddDishVariant = 'Variants';
   final txtAddIngredientTitle = 'Add Ingredient';
   final txtAddVariantTitle = 'Add Variant';
   final txtAddDishAddons = 'Addons';

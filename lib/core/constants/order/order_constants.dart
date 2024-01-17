@@ -9,6 +9,7 @@ class OrderConstants {
   final txtDeliveryAddress = 'Delivery address';
   final txtOrderedItemHead = 'Ordered Items';
   final txtQuantity = 'Quantity';
+  final txtSearch = 'Quantity';
 }
 
 @riverpod

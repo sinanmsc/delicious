@@ -29,7 +29,7 @@ class MenupageActionBtn extends StatelessWidget {
           foregroundColor: Colors.white,
           backgroundColor: Colors.red,
           label: 'Add category!',
-          onPressed: () => context.push(AddCategory.routPath),
+          onPressed: () => context.push(AddCategory.routerPath),
           // closeSpeedDialOnPressed: false,
         ),
         SpeedDialChild(

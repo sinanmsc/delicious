@@ -1,3 +1,9 @@
+import 'package:delicious/core/exceptions/base_exception.dart';
+import 'package:delicious/features/menu/data/repositories/menu_category_repository_impl.dart';
+import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
+import 'package:delicious/features/menu/domain/usecase/menu/add_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/menu/get_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/menu/remove_category_usecase.dart';
 import 'package:delicious/features/menu/presentation/providers/menu_state.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -11,6 +17,8 @@ class Menu extends _$Menu {
   late TextEditingController variantPriceController;
   late TextEditingController addonNameController;
   late TextEditingController addonPriceController;
+  late TextEditingController addCategoryNameController;
+  late CategoryRepository categoryRepository;
   @override
   MenuState build() {
     incredientController = TextEditingController();
@@ -18,6 +26,8 @@ class Menu extends _$Menu {
     variantPriceController = TextEditingController();
     addonNameController = TextEditingController();
     addonPriceController = TextEditingController();
+    addCategoryNameController = TextEditingController();
+    categoryRepository = ref.watch(categoryRepositoryProvider);
     ref.onDispose(() {
       dispose();
     });
@@ -27,12 +37,72 @@ class Menu extends _$Menu {
       addons: {},
       dishImage: '',
       categoryImage: '',
+      isLoading: false,
+      categoryList: [],
+      currentCategory: 0,
     );
   }
+
+  //current category's index;
+  void currentCategory(int index) {
+    state = state.copyWith(currentCategory: index);
+  }
+
+  //add category to firestore
+  Future<String?> addCategoryToFirestore() async {
+    try {
+      await AddCategoryUsecase(categoryRepository: categoryRepository)(
+        name: addCategoryNameController.text,
+        image: state.categoryImage,
+      );
+      addCategoryNameController.clear();
+      state = state.copyWith(categoryImage: '');
+    } on BaseException catch (e) {
+      return e.message;
+    } catch (e) {
+      return 'Unknown error occured';
+    }
+    return null;
+  }
+
+  //remove category from firestore
+  Future<String?> removeCategory() async {
+    final currentCategory = state.categoryList[state.currentCategory];
+    try {
+      // toggleLoading();
+      await RemoveCategoryUsecase(categoryRepository: categoryRepository)(
+          currentCategory);
+      // toggleLoading();
+    } on BaseException catch (e) {
+      return e.message;
+    }
+    return null;
+  }
+
+  //get category details from firestore
+  void getCategories() async {
+    await for (final categories
+        in GetCategoryUsecase(categoryRepository: categoryRepository)()) {
+      state = state.copyWith(categoryList: categories);
+    }
+  }
+
+  // saveCategoryToCache() {
+  //   SaveCategoryusecase(categoryRepository: categoryRepository)(
+  //       state.categoryList);
+  // }
+
+  // getCategoryFromCache() {
+  //   GetCategoryFromCacheUseCase(categoryRepository: categoryRepository);
+  // }
 
   void addIngredient(String ingredient, String image) {
     state =
         state.copyWith(incredients: {...state.incredients, ingredient: image});
+  }
+
+  void toggleLoading() {
+    state = state.copyWith(isLoading: !state.isLoading);
   }
 
   void addVariant(String variant, String price) {

@@ -17,7 +17,7 @@ class DishDiscriptionWidget extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          ref.watch(menuConstantsProvider).txtAddDishDiscription,
+          ref.watch(menuConstantsProvider).txtDishDiscriptionTitle,
           style: typography.smallHead,
         ),
         SizedBox(height: spaces.space_200),

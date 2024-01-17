@@ -31,8 +31,9 @@ class OrderPage extends ConsumerWidget {
         child: Center(
           child: Column(
             children: [
-              const CustomTextField(
-                  hintText: 'Search', prifixIcon: Icon(Icons.search)),
+              CustomTextField(
+                  hintText: ref.watch(orderConstantsProvider).txtSearch,
+                  prifixIcon: const Icon(Icons.search)),
               Expanded(
                 child: ListView.separated(
                   padding: EdgeInsets.only(top: spaces.space_200),
