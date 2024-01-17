@@ -16,7 +16,7 @@ class OrderListTile extends StatelessWidget {
     final boxShadow = AppTheme.of(context).boxShadow;
 
     return InkWell(
-      onTap: () => context.push(OrderDetails.path, extra: '#1455'),
+      onTap: () => context.push(OrderDetails.routerPath, extra: '#1455'),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: spaces.space_300, vertical: spaces.space_200),

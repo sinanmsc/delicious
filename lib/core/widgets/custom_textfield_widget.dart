@@ -42,6 +42,7 @@ class CustomTextField extends ConsumerWidget {
           decoration: InputDecoration(
             prefixIcon: prifixIcon,
             hintText: hintText,
+            contentPadding: EdgeInsets.symmetric(horizontal: spaces.space_200),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(spaces.space_125),
               borderSide: BorderSide(width: 1, color: colors.btnPrimary),

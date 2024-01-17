@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "277466529321",
+    "project_id": "delicious-dd098",
+    "storage_bucket": "delicious-dd098.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277466529321:android:fc8a2daa9d8afba7dba638",
+        "android_client_info": {
+          "package_name": "com.example.delicious"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwnVpL5R0uul9MQyW_ajcVf6pyILt7EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

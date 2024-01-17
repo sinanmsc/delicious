@@ -4,13 +4,13 @@ import 'package:delicious/core/widgets/custom_textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AddVariantDialogWidget extends ConsumerWidget {
+class AddVariantOrAddonsDialogWidget extends ConsumerWidget {
   final formKey = GlobalKey<FormState>();
   final String dialogTitle;
   final TextEditingController nameController;
   final TextEditingController priceController;
   final void Function() onPressed;
-  AddVariantDialogWidget({
+  AddVariantOrAddonsDialogWidget({
     super.key,
     required this.dialogTitle,
     required this.nameController,
@@ -47,6 +47,9 @@ class AddVariantDialogWidget extends ConsumerWidget {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter the variant price';
+                }
+                if (double.tryParse(value) == null) {
+                  return "Enter a valid price";
                 }
                 return null;
               },

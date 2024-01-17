@@ -1,5 +1,6 @@
 import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:delicious/features/menu/presentation/pages/menu_page.dart';
+import 'package:delicious/features/menu/presentation/pages/view_dish_page.dart';
 import 'package:delicious/features/orders/presentation/pages/order_list_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AdminMainPage extends HookConsumerWidget {
-  static const pagepath = '/';
-  static const pagename = 'AdminPage';
+  static const routerPath = '/';
+  static const routerName = 'AdminPage';
 
   const AdminMainPage({super.key});
   @override
@@ -19,7 +20,7 @@ class AdminMainPage extends HookConsumerWidget {
       body: switch (nav.value) {
         0 => const MenuPage(),
         1 => const OrderPage(),
-        _ => const MenuPage(),
+        _ => const ViewDish(),
       },
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: nav.value,

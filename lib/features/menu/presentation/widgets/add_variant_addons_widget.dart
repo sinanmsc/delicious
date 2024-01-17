@@ -2,11 +2,11 @@ import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class VariantList extends ConsumerWidget {
+class VariantAddonsList extends ConsumerWidget {
   final String listHead;
   final void Function() onTap;
   final List<MapEntry<String, String>> listMap;
-  const VariantList({
+  const VariantAddonsList({
     super.key,
     required this.listHead,
     required this.listMap,
