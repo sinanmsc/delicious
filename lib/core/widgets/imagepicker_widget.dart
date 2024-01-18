@@ -9,11 +9,13 @@ class ImagePickerWidget extends ConsumerWidget {
   final String headText;
   final void Function() onTap;
   final String imagePath;
+  final String? imageForUpdate;
   const ImagePickerWidget({
     super.key,
     required this.headText,
     required this.onTap,
     required this.imagePath,
+    this.imageForUpdate,
   });
 
   @override
@@ -21,6 +23,37 @@ class ImagePickerWidget extends ConsumerWidget {
     final colors = AppTheme.of(context).colors;
     final typography = AppTheme.of(context).typography;
     final spaces = AppTheme.of(context).spaces;
+
+    Widget widgetToShow = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.add,
+          color: Colors.grey[700],
+          size: spaces.space_500,
+        ),
+        SizedBox(height: spaces.space_100),
+        Text(
+          ref.watch(menuConstantsProvider).txtAddImage,
+          style: typography.h500,
+        )
+      ],
+    );
+
+    if (imageForUpdate != null) {
+      widgetToShow = Image.network(
+        imageForUpdate!,
+        fit: BoxFit.cover,
+      );
+    }
+
+    if (imagePath.isNotEmpty) {
+      widgetToShow = Image.file(
+        File(imagePath),
+        fit: BoxFit.cover,
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -42,26 +75,7 @@ class ImagePickerWidget extends ConsumerWidget {
                   shape: BoxShape.circle,
                   color: colors.backgroundLight,
                 ),
-                child: imagePath.isEmpty
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: Colors.grey[700],
-                            size: spaces.space_500,
-                          ),
-                          SizedBox(height: spaces.space_100),
-                          Text(
-                            ref.watch(menuConstantsProvider).txtAddImage,
-                            style: typography.h500,
-                          )
-                        ],
-                      )
-                    : Image.file(
-                        File(imagePath),
-                        fit: BoxFit.cover,
-                      ),
+                child: widgetToShow,
               ),
             ),
           ),

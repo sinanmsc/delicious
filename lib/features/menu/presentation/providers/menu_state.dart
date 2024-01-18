@@ -13,6 +13,7 @@ class MenuState with _$MenuState {
     required Map<String, String> addons,
     required String dishImage,
     required String categoryImage,
+    // required String oldCategoryImage,
     required bool isLoading,
   }) = _MenuState;
 }

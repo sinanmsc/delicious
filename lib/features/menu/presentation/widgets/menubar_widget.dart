@@ -13,7 +13,6 @@ class MenuPageBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var typography = AppTheme.of(context).typography;
     var spaces = AppTheme.of(context).spaces;
-
     return TabBar(
       isScrollable: true,
       onTap: (value) {

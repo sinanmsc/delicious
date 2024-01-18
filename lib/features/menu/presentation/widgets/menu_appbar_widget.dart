@@ -1,5 +1,6 @@
 import 'package:delicious/core/constants/menu/menu_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
+import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
 import 'package:delicious/features/menu/presentation/providers/menu_provider.dart';
 import 'package:delicious/features/menu/presentation/widgets/menubar_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,23 +24,22 @@ class MenuAppBar extends ConsumerWidget {
           actions: [
             TextButton(onPressed: () => context.pop(), child: const Text('No')),
             TextButton(
-                onPressed: () async {
-                  await ref.read(menuProvider.notifier).removeCategory();
-                  Future.sync(() => context.pop());
-                },
-                child:
-                    //  !ref.watch(menuProvider).isLoading
-                    //     ?
-                    SizedBox(
-                  width: spaces.space_200,
-                  height: spaces.space_200,
-                  child: CircularProgressIndicator(
-                    // color: colors.txtInverse,
-                    strokeWidth: 2,
-                  ),
-                )
-                // : const Text('Yes'),
-                )
+              onPressed: () async {
+                ref.read(menuProvider.notifier).toggleLoading();
+                await ref.read(menuProvider.notifier).removeCategory();
+                ref.read(menuProvider.notifier).toggleLoading();
+                Future.sync(() => context.pop());
+              },
+              child: ref.watch(menuProvider).isLoading
+                  ? SizedBox(
+                      width: spaces.space_200,
+                      height: spaces.space_200,
+                      child: const CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ),
+                    )
+                  : const Text('Yes'),
+            )
           ],
         ),
       );
@@ -59,7 +59,21 @@ class MenuAppBar extends ConsumerWidget {
               onTap: removeCategory,
               child: const Text('Delete Category'),
             ),
-            const PopupMenuItem(child: Text('Update Category')),
+            PopupMenuItem(
+                onTap: () {
+                  final category = ref
+                      .read(menuProvider)
+                      .categoryList[ref.read(menuProvider).currentCategory];
+
+                  // ref
+                  //     .read(menuProvider.notifier)
+                  //     .addCategoryImage(category.image);
+                  context.push(
+                    AddCategory.routerPath,
+                    extra: category,
+                  );
+                },
+                child: const Text('Update Category')),
           ],
         )
       ],

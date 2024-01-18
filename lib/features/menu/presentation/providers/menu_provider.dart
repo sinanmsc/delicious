@@ -1,9 +1,11 @@
 import 'package:delicious/core/exceptions/base_exception.dart';
 import 'package:delicious/features/menu/data/repositories/menu_category_repository_impl.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity.dart';
 import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
 import 'package:delicious/features/menu/domain/usecase/menu/add_category_usecase.dart';
 import 'package:delicious/features/menu/domain/usecase/menu/get_category_usecase.dart';
 import 'package:delicious/features/menu/domain/usecase/menu/remove_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/menu/update_category_usecase.dart';
 import 'package:delicious/features/menu/presentation/providers/menu_state.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -40,6 +42,7 @@ class Menu extends _$Menu {
       isLoading: false,
       categoryList: [],
       currentCategory: 0,
+      // oldCategoryImage: '',
     );
   }
 
@@ -69,10 +72,8 @@ class Menu extends _$Menu {
   Future<String?> removeCategory() async {
     final currentCategory = state.categoryList[state.currentCategory];
     try {
-      // toggleLoading();
       await RemoveCategoryUsecase(categoryRepository: categoryRepository)(
           currentCategory);
-      // toggleLoading();
     } on BaseException catch (e) {
       return e.message;
     }
@@ -87,14 +88,16 @@ class Menu extends _$Menu {
     }
   }
 
-  // saveCategoryToCache() {
-  //   SaveCategoryusecase(categoryRepository: categoryRepository)(
-  //       state.categoryList);
-  // }
-
-  // getCategoryFromCache() {
-  //   GetCategoryFromCacheUseCase(categoryRepository: categoryRepository);
-  // }
+  //update category to firestore
+  Future<String?> updateCategory(CategoryEntity category) async {
+    try {
+      await UpdateCategoryUsecase(categoryRepository: categoryRepository)(
+          category);
+    } on BaseException catch (e) {
+      return e.message;
+    }
+    return null;
+  }
 
   void addIngredient(String ingredient, String image) {
     state =
