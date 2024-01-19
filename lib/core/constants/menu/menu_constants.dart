@@ -12,6 +12,7 @@ class MenuConstants {
   final txtDishesImage = 'Dish Image';
   final txtAddImage = 'Add Image';
   final txtAddCategoryBtn = 'Add Category';
+  final txtUpdateCategoryBtn = 'Update Category';
   final txtAddDishBtn = 'Add Dish';
   final txtAddDishAppbarTitle = 'New Dish';
   final txtDishDiscriptionTitle = 'Discription';
@@ -21,6 +22,7 @@ class MenuConstants {
   final txtAddVariantTitle = 'Add Variant';
   final txtAddDishAddons = 'Addons';
   final txtAddAddonsTitle = 'Add Addons';
+  final txtDemoDishName = 'Biriyani';
 }
 
 @riverpod

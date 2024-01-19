@@ -26,6 +26,7 @@ class MenuPage extends ConsumerWidget {
           child: MenuAppBar(),
         ),
         body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             for (var i in ref.watch(menuProvider).categoryList)
               Column(
