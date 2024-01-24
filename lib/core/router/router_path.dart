@@ -1,4 +1,5 @@
 import 'package:delicious/features/Admin_Page/prasentation/pages/admin_main_page.dart';
+import 'package:delicious/features/authantication/presentation/pages/login_page.dart';
 import 'package:delicious/features/menu/domain/entity/category_entity.dart';
 import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
 import 'package:delicious/features/menu/presentation/pages/add_dishes_page.dart';
@@ -7,6 +8,7 @@ import 'package:delicious/features/orders/presentation/pages/order_details_page.
 import 'package:delicious/features/orders/presentation/pages/order_list_page.dart';
 import 'package:delicious/features/banner/presentation/pages/offers_and_discount.dart';
 import 'package:delicious/features/banner/presentation/pages/sliver_app.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterGo {
@@ -14,9 +16,21 @@ class RouterGo {
     initialLocation: AdminMainPage.routerPath,
     routes: [
       GoRoute(
+        path: LoginPage.routerPath,
+        name: LoginPage.routerName,
+        builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
         path: AdminMainPage.routerPath,
         name: AdminMainPage.routerName,
         builder: (context, state) => const AdminMainPage(),
+        redirect: (context, state) {
+          if (FirebaseAuth.instance.currentUser == null) {
+            return LoginPage.routerPath;
+          }
+
+          return null;
+        },
       ),
       GoRoute(
         path: AddCategory.routerPath,

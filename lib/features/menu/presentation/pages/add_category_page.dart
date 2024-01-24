@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:delicious/core/constants/menu/menu_constants.dart';
 import 'package:delicious/core/theme/theme_helper.dart';
+import 'package:delicious/core/utils/snackbar_utils.dart';
 import 'package:delicious/core/widgets/imagepicker_widget.dart';
 import 'package:delicious/core/widgets/custom_textfield_widget.dart';
 import 'package:delicious/features/menu/domain/entity/category_entity.dart';
@@ -129,22 +130,3 @@ class AddCategory extends ConsumerWidget {
   }
 }
 
-ScaffoldFeatureController<SnackBar, SnackBarClosedReason> snackBarWhenClickBtn(
-    BuildContext context, String errorMsg) {
-  final colors = AppTheme.of(context).colors;
-  final typography = AppTheme.of(context).typography;
-  final spaces = AppTheme.of(context).spaces;
-
-  return ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(
-        errorMsg,
-        style: typography.smallHead,
-      ),
-      behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.all(spaces.space_500),
-      backgroundColor: colors.backgroundLight,
-      shape: const StadiumBorder(),
-    ),
-  );
-}

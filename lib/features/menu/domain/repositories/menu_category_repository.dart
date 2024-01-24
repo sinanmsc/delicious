@@ -1,4 +1,3 @@
-import 'package:delicious/features/menu/data/model/category_model.dart';
 import 'package:delicious/features/menu/domain/entity/category_entity.dart';
 
 abstract class CategoryRepository {
@@ -8,5 +7,5 @@ abstract class CategoryRepository {
   Stream<List<CategoryEntity>> getCategory();
   Future<String> uploadCatecoryImage(String name, String filePath);
   void saveCategories(List<CategoryEntity> categories);
-  List<CategoryModel> getCategoryFromCache();
+  List<CategoryEntity> getCategoryFromCache();
 }
