@@ -6,6 +6,7 @@ import 'package:delicious/features/orders/presentation/pages/order_details_page.
 import 'package:delicious/features/orders/presentation/pages/order_list_page.dart';
 import 'package:delicious/features/banner/presentation/pages/offers_and_discount.dart';
 import 'package:delicious/features/banner/presentation/pages/sliver_app.dart';
+import 'package:delicious/features/settings/presentation/widgets/Editing_password_widget.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterGo {
@@ -51,7 +52,12 @@ class RouterGo {
         path: Bannerpage.path,
         name: Bannerpage.name,
         builder: (context, state) => const Bannerpage(),
-      )
+      ),
+      GoRoute(
+        path: EditingPassword.routerPath,
+        name: EditingPassword.routerName,
+        builder: (context, state) => const EditingPassword(),
+      ),
     ],
   );
 }

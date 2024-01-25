@@ -9,4 +9,5 @@ class AppColorPalette {
   static const backgroundLight = Color(0xFFFCEFEC);
   static const grey = Colors.grey;
   static const container = Color.fromARGB(255, 255, 162, 0);
+  
 }

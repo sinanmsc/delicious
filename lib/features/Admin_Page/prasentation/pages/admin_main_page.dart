@@ -3,6 +3,7 @@ import 'package:delicious/features/banner/presentation/pages/offers_and_discount
 import 'package:delicious/features/menu/presentation/pages/menu_page.dart';
 import 'package:delicious/features/menu/presentation/pages/view_dish_page.dart';
 import 'package:delicious/features/orders/presentation/pages/order_list_page.dart';
+import 'package:delicious/features/settings/presentation/page/settings_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,7 +22,9 @@ class AdminMainPage extends HookConsumerWidget {
       body: switch (nav.value) {
         0 => const MenuPage(),
         1 => const OrderPage(),
+
         2 => const OfferPage(),
+        3 => const SettingsPage(),
         _ => const MenuPage(),
       },
       bottomNavigationBar: BottomNavigationBar(

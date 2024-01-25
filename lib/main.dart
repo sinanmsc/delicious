@@ -1,6 +1,8 @@
 import 'package:delicious/core/local_db/objectbox.dart';
 import 'package:delicious/core/router/router_path.dart';
+import 'package:delicious/core/theme/dark_theme.dart';
 import 'package:delicious/core/theme/theme.dart';
+import 'package:delicious/features/settings/presentation/providers/settings_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +25,9 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: RouterGo.router,
-      theme: ref.watch(appThemeProvider),
+      theme: ref.watch(settingsProvider).theme == 0
+          ? ref.watch(appThemeProvider)
+          : ref.watch(appDarkThemeProvider),
     );
   }
 }
