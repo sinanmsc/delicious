@@ -7,6 +7,7 @@ class CustomTextField extends ConsumerWidget {
   final String? headText;
   final Widget? prifixIcon;
   final TextEditingController? controller;
+  final bool obscureText;
   final String? Function(String?)? validator;
 
   const CustomTextField({
@@ -16,6 +17,7 @@ class CustomTextField extends ConsumerWidget {
     this.prifixIcon,
     this.controller,
     this.validator,
+    this.obscureText = false,
   });
 
   @override
@@ -37,6 +39,7 @@ class CustomTextField extends ConsumerWidget {
               )
             : const SizedBox(),
         TextFormField(
+          obscureText: obscureText,
           controller: controller,
           validator: validator,
           decoration: InputDecoration(

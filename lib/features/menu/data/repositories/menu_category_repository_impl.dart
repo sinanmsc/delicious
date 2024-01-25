@@ -76,8 +76,13 @@ class CategoryRepositoryImpl implements CategoryRepository {
   }
 
   @override
-  List<CategoryModel> getCategoryFromCache() {
-   return cacheSource.getCategories();
+  List<CategoryEntity> getCategoryFromCache() {
+    final categories = cacheSource.getCategories();
+    return [
+      for (var category in categories)
+        CategoryEntity(
+            id: category.id, name: category.name, image: category.image)
+    ];
   }
 }
 
