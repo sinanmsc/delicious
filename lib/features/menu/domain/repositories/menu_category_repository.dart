@@ -1,4 +1,4 @@
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 
 abstract class CategoryRepository {
   Future<void> addCategory(CategoryEntity category);

@@ -1,4 +1,4 @@
-import 'package:delicious/features/menu/data/model/category_box_model.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_box_model.dart';
 import 'package:delicious/objectbox.g.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';

@@ -1,4 +1,4 @@
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'menu_state.freezed.dart';

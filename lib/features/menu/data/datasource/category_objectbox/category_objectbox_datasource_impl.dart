@@ -1,7 +1,7 @@
 import 'package:delicious/core/local_db/objectbox.dart';
 import 'package:delicious/features/menu/data/datasource/category_objectbox/category_objectbox_datasource.dart';
-import 'package:delicious/features/menu/data/model/category_box_model.dart';
-import 'package:delicious/features/menu/data/model/category_model.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_box_model.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'category_objectbox_datasource_impl.g.dart';

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:delicious/features/menu/data/datasource/category_firesrore/category_firesrore_datasource.dart';
-import 'package:delicious/features/menu/data/model/category_model.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

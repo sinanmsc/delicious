@@ -2,8 +2,8 @@ import 'package:delicious/features/menu/data/datasource/category_firesrore/categ
 import 'package:delicious/features/menu/data/datasource/category_firesrore/category_firesrore_datasource_impl.dart';
 import 'package:delicious/features/menu/data/datasource/category_objectbox/category_objectbox_datasource.dart';
 import 'package:delicious/features/menu/data/datasource/category_objectbox/category_objectbox_datasource_impl.dart';
-import 'package:delicious/features/menu/data/model/category_model.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_model.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -84,6 +84,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
             id: category.id, name: category.name, image: category.image)
     ];
   }
+
 }
 
 @riverpod

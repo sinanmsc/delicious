@@ -5,7 +5,7 @@ import 'package:delicious/core/theme/theme_helper.dart';
 import 'package:delicious/core/utils/snackbar_utils.dart';
 import 'package:delicious/core/widgets/imagepicker_widget.dart';
 import 'package:delicious/core/widgets/custom_textfield_widget.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:delicious/features/menu/presentation/providers/menu_provider.dart';
 import 'package:delicious/features/menu/presentation/widgets/add_btn_widget.dart';
 import 'package:flutter/material.dart';

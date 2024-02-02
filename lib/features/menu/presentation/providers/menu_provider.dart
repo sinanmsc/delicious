@@ -1,11 +1,15 @@
 import 'package:delicious/core/exceptions/base_exception.dart';
-import 'package:delicious/features/menu/data/repositories/menu_category_repository_impl.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/data/repositories/category_repository/menu_category_repository_impl.dart';
+import 'package:delicious/features/menu/data/repositories/dish_repository/menu_dish_repository_impl.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/dish_entity/dish_entity.dart';
 import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/add_category_usecase.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/get_category_usecase.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/remove_category_usecase.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/update_category_usecase.dart';
+import 'package:delicious/features/menu/domain/repositories/menu_dish_repository.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/add_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/get_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/remove_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/update_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/dish_usecase/add_dish_usecase.dart';
 import 'package:delicious/features/menu/presentation/providers/menu_state.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -20,7 +24,9 @@ class Menu extends _$Menu {
   late TextEditingController addonNameController;
   late TextEditingController addonPriceController;
   late TextEditingController addCategoryNameController;
+  late TextEditingController addDishNameController;
   late CategoryRepository categoryRepository;
+  late DishRepository dishRepository;
   @override
   MenuState build() {
     incredientController = TextEditingController();
@@ -29,7 +35,9 @@ class Menu extends _$Menu {
     addonNameController = TextEditingController();
     addonPriceController = TextEditingController();
     addCategoryNameController = TextEditingController();
+    addDishNameController = TextEditingController();
     categoryRepository = ref.watch(categoryRepositoryProvider);
+    dishRepository = ref.watch(dishRepositoryProvider);
     ref.onDispose(() {
       dispose();
     });
@@ -95,6 +103,18 @@ class Menu extends _$Menu {
           category);
     } on BaseException catch (e) {
       return e.message;
+    }
+    return null;
+  }
+
+  //add dishes
+  Future<String?> addDishes(DishEntity dish) async {
+    try {
+      await AddDishUsecase(dishRepository: dishRepository)(dish);
+    } on BaseException catch (e) {
+      return e.message;
+    } catch (e) {
+      return 'Unknown error occured';
     }
     return null;
   }
