@@ -1,8 +1,8 @@
-import 'package:delicious/core/exceptions/menu/cannot_get_category_exception.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/core/exceptions/menu/category_exception/cannot_get_category_exception.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/get_category_from_cache_usecase.dart';
-import 'package:delicious/features/menu/domain/usecase/menu/save_category_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/get_category_from_cache_usecase.dart';
+import 'package:delicious/features/menu/domain/usecase/category_usecase/save_category_usecase.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class GetCategoryUsecase {

@@ -1,7 +1,7 @@
-import 'package:delicious/core/exceptions/menu/cannot_add_category_exception.dart';
+import 'package:delicious/core/exceptions/menu/category_exception/cannot_add_category_exception.dart';
 import 'package:delicious/core/exceptions/menu/inavalid_text_exception.dart';
 import 'package:delicious/core/exceptions/menu/invalid_image_exception.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:delicious/features/menu/domain/repositories/menu_category_repository.dart';
 
 class AddCategoryUsecase {

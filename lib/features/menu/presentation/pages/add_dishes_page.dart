@@ -88,7 +88,14 @@ class AddDishes extends ConsumerWidget {
                 onTap: () => addingToAddons(),
               ),
               SizedBox(height: spaces.space_800),
-              AddBtn(text: ref.watch(menuConstantsProvider).txtAddDishBtn)
+              AddBtn(
+                text: ref.watch(menuConstantsProvider).txtAddDishBtn,
+                isLoading: ref.watch(menuProvider).isLoading,
+                onPressed: () {
+                  ref.read(menuProvider.notifier).toggleLoading();
+                  // ref.read(menuProvider.notifier).addDishes(DishEntity(id: '', name: ref.read(menuProvider.notifier).addDishNameController.text, image: image, discription: discription, ingredients: ingredients, variants: variants, addons: addons))
+                },
+              )
             ],
           ),
         ),

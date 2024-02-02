@@ -1,4 +1,4 @@
-import 'package:delicious/features/menu/data/model/category_model.dart';
+import 'package:delicious/features/menu/data/model/category_model/category_model.dart';
 
 abstract class CategoryFirestoreDatasource {
   Future<void> addCategory(CategoryModel category);

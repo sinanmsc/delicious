@@ -36,6 +36,7 @@ class NewDishHeadWidget extends ConsumerWidget {
         ),
         SizedBox(height: spaces.space_500),
         CustomTextField(
+          controller: ref.read(menuProvider.notifier).addDishNameController,
           hintText: 'Chicken Biriyani',
           headText: ref.watch(menuConstantsProvider).txtDishName,
           prifixIcon: Icon(

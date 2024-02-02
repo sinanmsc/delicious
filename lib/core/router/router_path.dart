@@ -1,6 +1,6 @@
 import 'package:delicious/features/Admin_Page/prasentation/pages/admin_main_page.dart';
 import 'package:delicious/features/authantication/presentation/pages/login_page.dart';
-import 'package:delicious/features/menu/domain/entity/category_entity.dart';
+import 'package:delicious/features/menu/domain/entity/category_entity/category_entity.dart';
 import 'package:delicious/features/menu/presentation/pages/add_category_page.dart';
 import 'package:delicious/features/menu/presentation/pages/add_dishes_page.dart';
 import 'package:delicious/features/menu/presentation/pages/view_dish_page.dart';
